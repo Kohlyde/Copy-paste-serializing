@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Development Environment</title>
+    <style>
+        body {
+            background-color: #121212; /* Very dark background */
+            color: #ffffff; /* White text color */
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column; /* Organizes content vertically */
+        }
+        .app-bar {
+            background-color: #0a0a0a; /* Almost black background */
+            padding: 10px 20px;
+            text-align: center;
+            border-bottom: 2px solid #ff4500; /* Dark red border for a slight demonic touch */
+        }
+        #codingArea, #landingZone {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow: hidden;
+            flex-direction: column;
+        }
+        textarea, #landingZone {
+            width: 90%;
+            flex-grow: 1; /* Makes textarea and landing zone take up available space */
+            margin-top: 20px; /* Spacing from app bar */
+        }
+        textarea {
+            height: 50%; /* Specifies height for textarea */
+            background-color: #333; /* Darker background for the textarea */
+            color: #ccc; /* Light grey text for contrast */
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            resize: none; /* Disable resizing */
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #666; /* Dark grey background */
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body  style="align-content: center !important;">
+    <div class="app-bar">
+        <h1>Development Environment</h1>
+    </div>
+    <div id="codingArea">
+        <textarea id="codeInput" placeholder="Paste your code here..."></textarea>
+        <button onclick="processAndDisplayData()">Process & Serialize</button>
+    </div>   
+    <div id="landingZone">
+        <p style="position:fixed;left: 40%; right: 50%;  "  id="outputArea">Processed output will appear here</p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
+    <script>
+        function processAndDisplayData() {
+            try {
+                const input = document.getElementById('codeInput').value;
+                const outputArea = document.getElementById('outputArea');
+
+                // Simulate data processing and serialization
+                const serializedData = JSON.stringify({data: input});
+
+                // Display serialized data in the landing zone
+                outputArea.textContent = serializedData;
+
+                // Optionally, you might want to highlight the JSON output
+                outputArea.innerHTML = hljs.highlightAuto(outputArea.textContent).value;
+            } catch (error) {
+                console.error('Error processing or displaying data:', error);
+            }
+        }
+    </script>
+</body>
+</html>
