@@ -1,5 +1,4 @@
-# Copy Paste Serializing Ohh Italy
-
+# Copy Paste Serializing utility
 This repository hosts the "Copy Paste Serializing Ohh Italy" project, an interactive development environment designed to streamline and enhance the data serialization process. Created by [KOHLYDE](https://github.com/KOHLYDE), this tool aims to provide an intuitive interface for developers to serialize data effortlessly and visualize the output instantly.
 
 ## Overview
